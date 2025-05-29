@@ -80,15 +80,6 @@ No package.json, você pode adicionar:
   "test:headed": "npx playwright test --headed --project=chromium"
 }
 ```
-## 🧱 Boas Práticas Aplicadas
-
-- Page Object Model (POM): Reutilização de ações e componentes de página.
-
-- Testes isolados: Cada teste funciona de forma independente.
-
-- Uso de expect() do Playwright Test para validações claras.
-
-- Configuração com playwright.config.ts para personalização de projetos e navegadores.
 
 ## 💡 Dicas úteis para Playwright
 
