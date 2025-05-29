@@ -1,29 +1,26 @@
 # 🎭 Testes Automatizados com Playwright
 
-Este projeto contém testes end-to-end (E2E) automatizados usando [Playwright](https://playwright.dev/), com foco em cenários reais de navegação, login e validação de elementos da interface.
+Este projeto tem como objetivo a automação de testes E2E (end-to-end) utilizando o Playwright, uma poderosa ferramenta open-source para testes de aplicações web.
 
-## 📁 Estrutura do Projeto
+## 🛠 Tecnologias utilizadas
 
-```
-playwright/
-├── tests/
-│ └── login.spec.ts # Testes de login
-├── pages/
-│ └── LoginPage.ts # Page Object Model para a tela de login
-├── utils/
-│ └── helpers.ts # Funções auxiliares (opcional)
-├── playwright.config.ts # Configuração do Playwright
-├── package.json
-└── README.md
-```
+- Playwright — Framework de automação de testes.
 
-## 🚀 Instalação e Execução
+- Node.js — Ambiente de execução JavaScript.
+
+- TypeScript — (opcional, se estiver usando tipagem).
+
+- Jest ou Test Runner nativo do Playwright.
+
+- Git — Controle de versão.
+
+## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
 
 ```
-git clone https://github.com/idclarissa/playwright.git
-cd playwright
+git clone https://github.com/idclarissa/test-playwright.git
+cd test-playwright
 ```
 2. Instale as dependências
 
@@ -46,21 +43,35 @@ Com trace ativado:
 npx playwright test --trace on
 ```
 
-## 🔍 Principais Funcionalidades Testadas
+## Técnicas e boas práticas aplicadas
 
-1 - Acesso à página de login
+✅ Page Object Model (POM) — Organização dos elementos e ações em classes, facilitando manutenção e reutilização de código.
 
-2 - Preenchimento de email e senha
+✅ Testes paralelos e isolados, aproveitando o runner do próprio Playwright.
 
-3 - Validação de mensagens de erro
+✅ Selectors robustos e confiáveis, priorizando data-test-id ou identificadores únicos.
 
-4 - Login com credenciais válidas
+✅ Uso de Fixtures para reaproveitamento de contexto e configuração.
 
-Verificação de redirecionamento e visibilidade de elementos-chave
+✅ Relatórios HTML interativos para análise de execução.
 
+✅ Screenshots e gravação de vídeo automática em casos de falha.
+
+✅ Good Practices: esperas automáticas do Playwright (não usar waits fixos), testes desacoplados e claros.
+
+## 📁 Estrutura do Projeto
+```
+test-playwright/
+├── tests/            → Casos de teste
+├── pages/            → Page Objects
+├── fixtures/         → Configurações e dados de apoio
+├── reports/          → Relatórios gerados
+├── playwright.config.ts → Configuração global
+├── package.json      → Dependências e scripts
 ## 📦 Scripts úteis
 No package.json, você pode adicionar:
 
+```
 ```
 "scripts": {
   "test": "npx playwright test",
@@ -79,27 +90,16 @@ No package.json, você pode adicionar:
 
 - Configuração com playwright.config.ts para personalização de projetos e navegadores.
 
-## 🧪 Exemplo de Teste
-```
-test('usuário consegue fazer login com sucesso', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+## 💡 Dicas úteis para Playwright
 
-  await loginPage.navigate();
-  await loginPage.login('usuario@exemplo.com', 'senha123');
+- Use page.locator() para interações mais inteligentes e seguras.
 
-  await expect(page.getByText('Products')).toBeVisible();
-});
-```
-## 💡 Dicas de Debug
+- Prefira page.fill() para preencher campos e page.getByRole() para acessibilidade e estabilidade dos seletores.
 
-page.pause() – Pausa o teste para inspeção.
+- Configure retries no playwright.config.ts para ambientes instáveis.
 
---debug – Roda em modo interativo com o Playwright Inspector.
+- Habilite vídeos e screenshots apenas em falhas para economizar espaço e análise mais eficiente.
 
---slow-mo=200 (via launchOptions) – Deixa as ações mais lentas.
-
-### 🤝 Contribuindo
-Sugestões, melhorias e correções são bem-vindas. Sinta-se livre para abrir uma issue ou pull request.
 
 ### 🌐 Referências
 Documentação do Playwright
